@@ -7,11 +7,11 @@ public class Job {
     private int id;
     private static int nextId = 1;
 
-    private String name;
-    private Employer employer;
-    private Location location;
-    private PositionType positionType;
-    private CoreCompetency coreCompetency;
+    private String name = null;
+    private Employer employer = null;
+    private Location location = null;
+    private PositionType positionType = null;
+    private CoreCompetency coreCompetency = null;
 
     private static final String DEFAULT_MESSAGE = "Data not available";
 
@@ -25,7 +25,7 @@ public class Job {
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
     public Job() {
-        id = nextId;
+        this.id = nextId;
         nextId++;
     }
 
@@ -100,42 +100,42 @@ public class Job {
     public String toString() {
 
         String toStringId; // = Integer.toString(this.id);
-        if(Integer.toString(this.id)=="" || Integer.toString(this.id)==null) {
+        if(Integer.toString(this.id).equals("") || Integer.toString(this.id)==null) {
             toStringId  = "Data no available";
         }else {
             toStringId = Integer.toString(this.id);
         }
 
         String toStringName;
-        if(this.getName()==""||this.getName()==null){
+        if(this.getName().equals("")||this.getName()==null){
             toStringName = "Data no available";
         }else{
             toStringName = this.getName();
         }
 
         String toStringEmployer;
-        if(this.getEmployer().toString()=="" || this.getEmployer()==null) {
+        if(this.getEmployer().toString().equals("") || this.getEmployer()==null) {
             toStringEmployer = "Data no available";
         }else{
             toStringEmployer = this.getEmployer().toString();
         }
 
         String toStringLocation;
-        if(this.getLocation().toString()=="" || this.getLocation()==null) {
+        if(this.getLocation().toString().equals("") || this.getLocation()==null) {
             toStringLocation = "Data no available";
         }else{
             toStringLocation = this.getLocation().toString();
         }
 
         String toStringPositionType;
-        if(this.getPositionType().toString()=="" || this.getPositionType()==null) {
+        if(this.getPositionType().toString().equals("") || this.getPositionType()==null) {
             toStringPositionType = "Data no available";
         }else{
             toStringPositionType = this.getPositionType().toString();
         }
 
         String toStringCoreCompetency;
-        if(this.getCoreCompetency().toString()=="" || this.getCoreCompetency()==null) {
+        if(this.getCoreCompetency().toString().equals("") || this.getCoreCompetency()==(null)) {
             toStringCoreCompetency = "Data no available";
         }else{
             toStringCoreCompetency = this.getCoreCompetency().toString();
