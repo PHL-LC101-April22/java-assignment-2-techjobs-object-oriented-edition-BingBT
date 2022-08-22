@@ -57,6 +57,7 @@ public class JobTest {
         Job job = new Job();
        // assertEquals(job.toString().charAt(0),'\n' );
         assertEquals('\n', job.toString().charAt(0) );
+        assertEquals('\n', job.toString().charAt(job.toString().length()-1));
     }
 
     @Test
@@ -68,7 +69,7 @@ public class JobTest {
                 "\nEmployer: ACME" +
                 "\nLocation: Desert" +
                 "\nPosition Type: Quality control" +
-                "\nCore Competency: Persistence";
+                "\nCore Competency: Persistence\n";
         String actual = job.toString();
         assertEquals(expected, actual);
     }
@@ -77,35 +78,35 @@ public class JobTest {
     public void testToStringHandlesEmptyField() {
         Job job = new Job("", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         assertEquals("\nID: "+job.getId() +
-                "\nName: Data no available" +
+                "\nName: Data not available" +
                 "\nEmployer: ACME" +
                 "\nLocation: Desert" +
                 "\nPosition Type: Quality control" +
-                "\nCore Competency: Persistence", job.toString());
+                "\nCore Competency: Persistence\n", job.toString());
 
         Job job2 = new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         assertEquals("\nID: "+job2.getId() +
                 "\nName: Product tester" +
-                "\nEmployer: Data no available" +
+                "\nEmployer: Data not available" +
                 "\nLocation: Desert" +
                 "\nPosition Type: Quality control" +
-                "\nCore Competency: Persistence", job2.toString());
+                "\nCore Competency: Persistence\n", job2.toString());
 
         Job job3 = new Job("Product tester", new Employer("ACME"), new Location(""), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         assertEquals("\nID: "+job3.getId() +
                 "\nName: Product tester" +
                 "\nEmployer: ACME" +
-                "\nLocation: Data no available" +
+                "\nLocation: Data not available" +
                 "\nPosition Type: Quality control" +
-                "\nCore Competency: Persistence", job3.toString());
+                "\nCore Competency: Persistence\n", job3.toString());
 
         Job job4 = new Job("product tester", new Employer("ACME"), new Location("Desert"), new PositionType(""), new CoreCompetency("Persistence"));
         assertEquals("\nID: "+job4.getId() +
                 "\nName: product tester" +
                 "\nEmployer: ACME" +
                 "\nLocation: Desert" +
-                "\nPosition Type: Data no available" +
-                "\nCore Competency: Persistence", job4.toString());
+                "\nPosition Type: Data not available" +
+                "\nCore Competency: Persistence\n", job4.toString());
 
         Job job5 = new Job("product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency(""));
         assertEquals("\nID: "+job5.getId() +
@@ -113,7 +114,7 @@ public class JobTest {
                 "\nEmployer: ACME" +
                 "\nLocation: Desert" +
                 "\nPosition Type: Quality control" +
-                "\nCore Competency: Data no available", job5.toString());
+                "\nCore Competency: Data not available\n", job5.toString());
 
         Job job6 = new Job("product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         assertEquals("\nID: "+job6.getId() +
@@ -121,7 +122,7 @@ public class JobTest {
                 "\nEmployer: ACME" +
                 "\nLocation: Desert" +
                 "\nPosition Type: Quality control" +
-                "\nCore Competency: Persistence", job6.toString());
+                "\nCore Competency: Persistence\n", job6.toString());
 
 
 //        Job job7 = new Job();
